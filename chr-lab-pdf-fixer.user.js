@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELUS Collaborative Health Record (CHR) Inputhealth Lab PDF Fixer
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.3
 // @description  Converts specific base64-encoded text in lab table cells to clickable PDF links.
 // @author       David Grant
 // @match        *://*.inputhealth.com/*
