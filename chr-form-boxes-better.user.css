@@ -1,0 +1,51 @@
+/* ==UserStyle==
+@name           TELUS CHR Form Boxes Better
+@namespace      github.com/dgrant/telus-chr-userscripts
+@version        1.0.0
+@description    Highlights filled form fields and improves empty field styling in TELUS CHR
+@author         David Grant <davidgrant@gmail.com> (https://github.com/dgrant)
+==/UserStyle== */
+
+@-moz-document domain("inputhealth.com") {
+    /* Styles for FILLED fields */
+    .element-item.form-mode:not(.empty) .element-label.form {
+      font-weight: bold !important;
+      color: #6f42c1; /* Purple */
+      border: none;
+      background: linear-gradient(to right, rgba(138, 115, 173, 0.08), transparent);
+    }
+
+    /* Styles for EMPTY fields */
+    .element-item.form-mode.empty .element-label.form {
+      border: 1px solid transparent;
+      font-weight: normal;
+      color: #666; /* Dark grey */
+      background-color: transparent; /* No background for empty fields */
+      transition: border-color 0.2s ease-in-out; /* Smooth transition for focus */
+    }
+
+    .element-item.form-mode.empty .element-label.form:hover {
+      border: 3px solid #99c !important; /* Subtle border on hover */
+    }
+
+    /* Now the focus style should work */
+    .element-item.form-mode.empty .element-label.form:focus,
+    .element-item.form-mode.empty .element-label.form:focus-within { /* Use :focus too for direct focus */
+        border-color: #99c !important; /* Subtle border on focus */
+    }
+
+    /* Styles for FILLED Checkboxes (::before pseudo-element) */
+    .element-item.form-mode:not(.empty) span.shape.entypo.check::before {
+      color: #6f42c1 !important;
+    }
+
+    /* Apply directly to the span for cases where ::before might inherit */
+    .element-item.form-mode:not(.empty) span.shape.entypo.check {
+      color: #6f42c1;
+    }
+
+    /* Placeholder text styling for all form fields */
+    .element-item.form-mode.empty .element-label.form::before {
+      color: #ddd !important;
+    }
+}
