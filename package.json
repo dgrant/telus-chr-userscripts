@@ -6,16 +6,33 @@
   "description": "Userscripts for TELUS Collaborative Health Record (CHR)",
   "scripts": {
     "lint": "eslint .",
+    "lint:css": "stylelint '**/*.user.css'",
+    "format": "prettier --write '**/*.user.js' '**/*.user.css'",
+    "format:check": "prettier --check '**/*.user.js' '**/*.user.css'",
+    "typecheck": "tsc",
+    "check": "npm run lint && npm run lint:css && npm run format:check && npm run typecheck",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.user.js": "eslint --fix"
+    "*.user.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.user.css": [
+      "stylelint --fix",
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
     "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.1.8",
     "globals": "^16.0.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3"
+    "lint-staged": "^15.4.3",
+    "prettier": "^3.8.1",
+    "stylelint": "^17.3.0",
+    "stylelint-config-standard": "^40.0.0",
+    "typescript": "^5.9.3"
   }
 }
