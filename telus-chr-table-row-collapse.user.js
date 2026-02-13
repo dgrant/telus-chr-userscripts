@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         TELUS Collaborative Health Record (CHR) Inputhealth - Table Row Collapse/Expand
+// @name         TELUS CHR Inputhealth - Lab Table Row Collapse/Expand
 // @namespace    github.com/dgrant/telus-chr-userscripts
-// @version      1.5
+// @version      1.6
 // @description  Adds collapse/expand buttons to table sections (within the TH column), collapsing rows by default, with debounced execution and debug logging.
 // @author       Your Name/AI Assistant
 // @match        *://*.inputhealth.com/*
