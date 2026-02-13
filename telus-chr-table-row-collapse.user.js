@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         TELUS CHR Inputhealth - Lab Table Row Collapse/Expand
 // @namespace    github.com/dgrant/telus-chr-userscripts
-// @version      1.6
+// @version      1.7
 // @description  Adds collapse/expand buttons to table sections (within the TH column), collapsing rows by default, with debounced execution and debug logging.
 // @author       Your Name/AI Assistant
 // @match        *://*.inputhealth.com/*
@@ -21,11 +21,11 @@
         }
         /* No display: flex on th.result-name-column to avoid unwanted wrapping/layout issues */
 
-        /* Ensure the span content doesn't wrap, which might force the button below it */
-        th.result-name-column > span.result-name {
-            white-space: nowrap; /* Prevent the text inside this span from wrapping */
-            display: inline-block; /* Ensure it behaves well with adjacent inline-block elements */
-            vertical-align: middle; /* Align vertically with the button */
+        /* Only apply nowrap on rows that actually have a collapse toggle button */
+        th.result-name-column.has-collapse-toggle > span.result-name {
+            white-space: nowrap;
+            display: inline-block;
+            vertical-align: middle;
         }
 
         /* Style for the toggle button */
@@ -118,6 +118,7 @@
                 toggleButton.textContent = '[+]';
                 toggleButton.classList.add('collapse-toggle-button');
 
+                thElement.classList.add('has-collapse-toggle');
                 // Append the button after the span.result-name for better flow
                 const resultNameSpan = thElement.querySelector('span.result-name');
                 if (resultNameSpan) {
