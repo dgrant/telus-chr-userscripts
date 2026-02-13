@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         TELUS CHR Inputhealth - Lab Table Row Collapse/Expand
 // @namespace    github.com/dgrant/telus-chr-userscripts
-// @version      1.7
-// @description  Adds collapse/expand buttons to table sections (within the TH column), collapsing rows by default, with debounced execution and debug logging.
+// @version      1.8
+// @description  Adds collapse/expand buttons to table sections (within the TH column), collapsing rows by default. Also hides completely empty rows. Debounced execution with debug logging.
 // @author       Your Name/AI Assistant
 // @match        *://*.inputhealth.com/*
 // @grant        none
@@ -142,12 +142,34 @@
         console.log('applyCollapseExpand finished.');
     }
 
-    const debouncedApplyCollapseExpand = debounce(applyCollapseExpand, 150);
+    // Function to hide completely empty rows (no visible text content at all)
+    function hideEmptyRows() {
+        const rows = document.querySelectorAll('tr.row.result-item');
+        let hiddenCount = 0;
+        rows.forEach(row => {
+            if (row.dataset.emptyRowProcessed) return;
+            row.dataset.emptyRowProcessed = 'true';
+            if (row.textContent.trim() === '') {
+                row.style.display = 'none';
+                hiddenCount++;
+            }
+        });
+        if (hiddenCount > 0) {
+            console.log(`hideEmptyRows: hid ${hiddenCount} empty rows.`);
+        }
+    }
 
-    applyCollapseExpand();
+    function applyAll() {
+        applyCollapseExpand();
+        hideEmptyRows();
+    }
+
+    const debouncedApplyAll = debounce(applyAll, 150);
+
+    applyAll();
 
     const observer = new MutationObserver(() => {
-        debouncedApplyCollapseExpand();
+        debouncedApplyAll();
     });
 
     observer.observe(document.body, { childList: true, subtree: true });
