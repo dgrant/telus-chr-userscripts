@@ -1,8 +1,8 @@
 // @ts-check
 // ==UserScript==
-// @name         TELUS CHR Inputhealth - Lab PDF Fixer
+// @name         TELUS CHR - Lab PDF Fixer
 // @namespace    github.com/dgrant/telus-chr-userscripts
-// @version      1.6
+// @version      1.7
 // @description  Converts specific base64-encoded text in lab table cells to clickable PDF links.
 // @author       David Grant <davidgrant@gmail.com> (https://github.com/dgrant)
 // @match        *://*.inputhealth.com/*
