@@ -1,0 +1,22 @@
+/* ==UserStyle==
+@name           TELUS CHR - Lab Result Status Cleanup
+@namespace      github.com/dgrant/telus-chr-userscripts
+@version        1.2.0
+@description    Makes lab result status indicators (e.g. "F") smaller and less prominent, and hides duplicates in multi-row results
+@author         David Grant <davidgrant@gmail.com> (https://github.com/dgrant)
+==/UserStyle== */
+
+@-moz-document domain("inputhealth.com") {
+  /* Make status indicator smaller and subtler */
+  .lab-result-status {
+    font-size: 0.7em;
+    opacity: 0.5;
+    width: auto !important;
+    padding: 0 4px !important;
+  }
+
+  /* Hide status on all but the first row in multi-row results */
+  .result-value-container ~ .result-value-container .lab-result-status {
+    display: none !important;
+  }
+}
