@@ -1,8 +1,17 @@
-# TELUS CHR - Lab Table Row Collapse/Expand
+# TELUS CHR - Lab Summary Table Row Collapse/Expand
 
 Adds collapse/expand buttons to table sections in the TELUS CHR lab results view. Rows under each section header are collapsed by default, with a toggle button to expand them. Completely empty rows are also hidden automatically.
 
 ## Changelog
+
+### v2.2
+- Renamed script and file to "Lab Summary Table Row Collapse/Expand"
+
+### v2.1
+- Added "lab" to filename
+
+### v2.0
+- Standardized @name to "TELUS CHR - Lab Table Row Collapse/Expand" (dropped "Inputhealth")
 
 ### v1.9
 - Code formatting and quality tooling (no functional changes)

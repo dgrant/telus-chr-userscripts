@@ -4,6 +4,9 @@ Highlights filled form fields and improves empty field styling in TELUS CHR. Fil
 
 ## Changelog
 
+### v1.3.0
+- Renamed file from chr- to telus-chr- prefix
+
 ### v1.2.0
 - Code formatting and quality tooling (no functional changes)
 

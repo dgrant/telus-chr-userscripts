@@ -4,6 +4,9 @@ Makes lab result status indicators (e.g. "F" for Final) smaller and less promine
 
 ## Changelog
 
+### v1.3.0
+- Renamed file from chr- to telus-chr- prefix
+
 ### v1.2.0
 - Adjusted status indicator width for better appearance
 
